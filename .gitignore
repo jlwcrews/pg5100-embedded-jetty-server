@@ -6,3 +6,4 @@ webapp/target/
 .classpath
 *.iml
 *.log
+out/
