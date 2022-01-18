@@ -7,6 +7,7 @@ import no.jlwcrews.servlets.PingServlet
 import org.eclipse.jetty.server.Server
 import org.eclipse.jetty.server.handler.ContextHandlerCollection
 import org.eclipse.jetty.servlet.ServletHolder
+import org.eclipse.jetty.util.resource.Resource
 import org.eclipse.jetty.webapp.WebAppContext
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -27,7 +28,8 @@ class AppServer(port: Int) {
     private fun setServlets(): WebAppContext {
         val webAppContext = WebAppContext()
         webAppContext.contextPath = "/"
-        webAppContext.resourceBase = "webapp/target/webapp"
+        //webAppContext.resourceBase = "src/main/resources/webapp"
+        webAppContext.baseResource = Resource.newClassPathResource("webapp", false, true)
         webAppContext.addServlet(ServletHolder(PingServlet()), "/ping/*")
         webAppContext.addServlet(ServletHolder(ApiServlet()), "/api/*")
         webAppContext.addServlet(ServletHolder(CookieServlet()), "/cookie/*")

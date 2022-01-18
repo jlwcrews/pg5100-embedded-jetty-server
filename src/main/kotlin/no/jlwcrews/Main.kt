@@ -1,9 +1,9 @@
 package no.jlwcrews
 
-object Main {
-
-    @JvmStatic
-    fun main(args: Array<String>) {
+    fun main() {
         AppServer(8080).startServer()
     }
-}
+
+
+
+
