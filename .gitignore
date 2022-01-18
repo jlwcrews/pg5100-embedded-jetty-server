@@ -1,0 +1,8 @@
+target/
+webapp/target/
+.idea/
+.settings/
+.project
+.classpath
+*.iml
+*.log
