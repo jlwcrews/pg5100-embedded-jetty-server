@@ -13,22 +13,21 @@ import org.eclipse.jetty.util.resource.Resource
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-class AppServer() {
+class AppServer {
 
     private val logger: Logger = LoggerFactory.getLogger(this::class.java)
     private val server: Server = Server()
 
-    fun startServer() {
-        System.setProperty("org.eclipse.jetty.LEVEL", "INFO")
+    fun startServer(port: Int) {
         val connector = ServerConnector(server)
-        connector.port = 8080
+        connector.port = port
         server.addConnector(connector)
         val contextHandler = ServletContextHandler(ServletContextHandler.SESSIONS);
         server.handler = contextHandler
         setStaticContent(contextHandler)
         setServlets(contextHandler)
         server.start()
-        server.join()
+        logger.info("Server starting on port: $port")
     }
 
     private fun setStaticContent(contextHandler: ServletContextHandler) {

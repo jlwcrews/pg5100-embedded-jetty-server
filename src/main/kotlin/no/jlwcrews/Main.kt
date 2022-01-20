@@ -1,7 +1,7 @@
 package no.jlwcrews
 
     fun main() {
-        AppServer().startServer()
+        AppServer().startServer(8080)
     }
 
 

@@ -14,10 +14,6 @@ $("#cookie").addEventListener("click", function() {
   window.location.href="http://localhost:8080/cookie";
 });
 
-$("#otherCookie").addEventListener("click", function() {
-  window.location.href="http://localhost:8080/otherCookie";
-});
-
 const getPing = async () => {
     const response = await fetch("/ping")
     return response.status

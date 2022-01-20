@@ -8,7 +8,7 @@ private class ServerTest {
 
     @BeforeEach
     fun initializeServer(){
-        AppServer().startServer()
+        AppServer().startServer(9500)
     }
 
     @AfterEach
@@ -18,7 +18,7 @@ private class ServerTest {
 
     @Test
     fun serverShouldStart(){
-        val url = URL("http://localhost:8080/ping")
+        val url = URL("http://localhost:9500/ping")
         val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
         connection.requestMethod = "GET"
         connection.connect()
