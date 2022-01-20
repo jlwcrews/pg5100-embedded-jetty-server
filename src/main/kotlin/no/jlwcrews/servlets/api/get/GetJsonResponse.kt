@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 class GetJsonResponse: Query {
 
     fun getJsonResponse(): String {
-        val user = User("dicknose", "jackhole", LocalDateTime.now(), "dicknose@nose.dick")
+        val user = User("superhead", "jackhole", LocalDateTime.now(), "sh@j.d")
         val mapper = jacksonObjectMapper()
         return mapper.writeValueAsString(user)
     }
