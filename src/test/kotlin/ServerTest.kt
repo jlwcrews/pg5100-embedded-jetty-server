@@ -8,17 +8,17 @@ private class ServerTest {
 
     @BeforeEach
     fun initializeServer(){
-        AppServer(9000).startServer()
+        AppServer().startServer()
     }
 
     @AfterEach
     fun teardownServer(){
-        AppServer(9000).stopServer()
+        AppServer().stopServer()
     }
 
     @Test
     fun serverShouldStart(){
-        val url = URL("http://localhost:9000/ping")
+        val url = URL("http://localhost:8080/ping")
         val connection: HttpURLConnection = url.openConnection() as HttpURLConnection
         connection.requestMethod = "GET"
         connection.connect()
